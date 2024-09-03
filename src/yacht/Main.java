@@ -249,26 +249,7 @@ public class Main {
 		}
 	}
 	
-	// 점수판 출력 메서드
-	public static void printBoard() {
-		System.out.printf("-----------점수판------------ \n");
-		System.out.printf("Categories   |player|cpu     \n");
-		System.out.printf("Aces         |   %2d  |  %2d  \n", playerScoreBoard[0], cpuScoreBoard[0]);
-		System.out.printf("Deuces       |   %2d  |  %2d  \n", playerScoreBoard[1], cpuScoreBoard[1]);
-		System.out.printf("Threes       |   %2d  |  %2d  \n", playerScoreBoard[2], cpuScoreBoard[2]);
-		System.out.printf("Fours        |   %2d  |  %2d  \n", playerScoreBoard[3], cpuScoreBoard[3]);
-		System.out.printf("Fives        |   %2d  |  %2d  \n", playerScoreBoard[4], cpuScoreBoard[4]);
-		System.out.printf("Sixes        |   %2d  |  %2d  \n", playerScoreBoard[5], cpuScoreBoard[5]);
-		System.out.printf("Choice       |   %2d  |  %2d  \n", playerScoreBoard[6], cpuScoreBoard[6]);
-		System.out.printf("4 of a Kind  |   %2d  |  %2d  \n", playerScoreBoard[7], cpuScoreBoard[7]);
-		System.out.printf("Full House   |   %2d  |  %2d  \n", playerScoreBoard[8], cpuScoreBoard[8]);
-		System.out.printf("S.Straight   |   %2d  |  %2d  \n", playerScoreBoard[9], cpuScoreBoard[9]);
-		System.out.printf("L.Straight   |   %2d  |  %2d  \n", playerScoreBoard[10], cpuScoreBoard[10]);
-		System.out.printf("Yacht        |   %2d  |  %2d  \n", playerScoreBoard[11], cpuScoreBoard[11]);
-		System.out.printf("Bonus        |   %2d  |  %2d  \n", playerHasBonus? 35 : 0, cpuHasBonus? 35 : 0);
-		System.out.printf("Total        |   %2d  |  %2d  \n", checkTotal(), checkCpuTotal());
-		System.out.printf("--------------------------- \n");
-	}
+	
 
 	// 에이스 턴 진행
 	public static void playAcesTurn() {
@@ -290,8 +271,6 @@ public class Main {
 				//개행
 				System.out.println();
 				System.out.println();
-				// 점수판 출력
-				printBoard();
 				isAcesEnd = true;
 			} else {
 				System.out.println();
@@ -316,38 +295,6 @@ public class Main {
 		playerScoreBoard[0] = count*ACE;
 	}
 	
-	// Deuces 턴 진행
-	public static void playDeucesTurn() {
-		boolean isDeucesEnd = false; // Deuces 턴 종료 확인
-
-		System.out.println();
-		System.out.println();
-		System.out.println("Deuces 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-		
-		while(isDeucesEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// Deuces 체크
-				checkDeuces();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isDeucesEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}
-		}
-		isDeucesEnd = false;
-	}
-	
 	// Deuces 체크
 	public static void checkDeuces() {
 		int count = 0;
@@ -362,38 +309,6 @@ public class Main {
 		playerScoreBoard[1] = count*Deuces;
 	}
 	
-	// Threes 턴 진행
-	public static void playThreesTurn() {
-		boolean isThreesEnd = false; // Threes 턴 종료 확인
-		
-		System.out.println();
-		System.out.println();
-		System.out.println("Threes 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-		
-		while(isThreesEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// Threes 체크
-				checkThrees();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isThreesEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}
-		}
-		isThreesEnd = false;
-	}
-	
 	// Threes 체크
 	public static void checkThrees() {
 		int count = 0;
@@ -406,37 +321,6 @@ public class Main {
 			}
 		}	
 		playerScoreBoard[2] = count * THREES;
-	}
-	// Fours 턴 진행
-	public static void playFoursTurn() {
-		boolean isFoursEnd = false; // Fours 턴 종료 확인
-		
-		System.out.println();
-		System.out.println();
-		System.out.println("Fours 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-		
-		while(isFoursEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// Fours 체크
-				checkFours();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isFoursEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}
-		}
-		isFoursEnd = false;
 	}
 	
 	// Fours 체크
@@ -453,35 +337,6 @@ public class Main {
 		playerScoreBoard[3] = count * FOURS;
 	}
 	
-	// Fives 턴 진행
-	public static void playFivesTurn() {
-		boolean isFivesEnd = false; // Threes 턴 종료 확인
-		System.out.println();
-		System.out.println();
-		System.out.println("Fives 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-
-		while(isFivesEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// Fives 체크
-				checkFives();
-				//개행
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isFivesEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}
-		}
-		isFivesEnd = false;
-	}
 	
 	// Fives 체크
 	public static void checkFives() {
@@ -496,36 +351,6 @@ public class Main {
 		}	
 		playerScoreBoard[4] = count * FIVES;
 	}
-	// Sixes 턴 진행
-	public static void playSixesTurn() {
-		boolean isSixesEnd = false; // Sixes 턴 종료 확인
-		System.out.println();
-		System.out.println();
-		System.out.println("Sixes 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-		
-		while(isSixesEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// Sixes 체크
-				checkThrees();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isSixesEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}	
-		}
-		isSixesEnd = false;
-	}
 	
 	// Sixes 체크
 	public static void checkSixes() {
@@ -539,38 +364,6 @@ public class Main {
 			}
 		}	
 		playerScoreBoard[5] = count * SIXES;
-	}
-	
-	// 4 of a Kind 턴 진행
-	public static void playFokTurn() {
-		boolean isFokEnd = false; // 4 of a Kind 턴 종료 확인
-		
-		System.out.println();
-		System.out.println();
-		System.out.println("4 of a Kind 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-		
-		while(isFokEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// 4 of a Kind 체크
-				checkFok();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isFokEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}			
-		}
-		isFokEnd = false;
 	}
 	
 	//  4 of a Kind 체크 
@@ -607,38 +400,6 @@ public class Main {
 		playerScoreBoard[7] = sum;
 		initCountNumArr();
 		initCheckNumArr();
-	}
-	
-	// FullHouse 턴 진행
-	public static void playFullHouseTurn() {
-		boolean isFullHouseEnd = false; // FullHouse 턴 종료 확인
-		System.out.println();
-		System.out.println();
-		System.out.println("FullHouse 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-		
-		while(isFullHouseEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				System.out.println();
-				// FullHouse 체크
-				checkFullHouse();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isFullHouseEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}
-		}
-		isFullHouseEnd = false;
 	}
 	
 	// FullHouse 체크 
@@ -688,121 +449,26 @@ public class Main {
 		initCheckNumArr();
 	}
 	
-	// S.Straight 턴 진행
-	public static void playSStraightTurn() {
-		boolean isSStraightEnd = false; // S.Straight 턴 종료 확인
-		System.out.println();
-		System.out.println();
-		System.out.println("S.Straight 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-		
-		while(isSStraightEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// S.Straight 체크
-//				checkSStraight();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isSStraightEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}
-		}
-		isSStraightEnd = false;
-	}
-	
 	// S.Straight 체크 ★★★★★★★★★★★★★★수정필요★★★★★★★★★★★★★
-//	public static void checkSStraight() {
-//		
-//		int sum = 0;
-//		
-//		for(int i=0;i <5; i++) {
-//			sum += playerDiceArr[i];
-//		}
-//		playerScoreBoard[6] = sum;
-//	}
-	
-	// L.Straight 턴 진행
-	public static void playLStraightTurn() {
-		boolean isLStraightEnd = false; // L.Straight 턴 종료 확인
-
-		System.out.println();
-		System.out.println();
-		System.out.println("L.Straight 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
+	public static void checkSStraight() {
 		
-		while(isLStraightEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// L.Straight 체크
-//				checkLStraight();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isLStraightEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}
+		int sum = 0;
+		
+		for(int i=0;i <5; i++) {
+			sum += playerDiceArr[i];
 		}
-		isLStraightEnd = false;
+		playerScoreBoard[6] = sum;
 	}
 	
 	// L.Straight 체크 ★★★★★★★★★★★★★★수정필요★★★★★★★★★★★★★
-//	public static void checkLStraight() {
-//		
-//		int sum = 0;
-//		
-//		for(int i=0;i <5; i++) {
-//			sum += playerDiceArr[i];
-//		}
-//		playerScoreBoard[6] = sum;
-//	}
-	
-	// Yacht 턴 진행
-	public static void playYachtTurn() {
-		boolean isYachtEnd = false; // Yacht 턴 종료 확인
+	public static void checkLStraight() {
 		
-		System.out.println();
-		System.out.println();
-		System.out.println("Yacht 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
+		int sum = 0;
 		
-		while(isYachtEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// Yacht 체크
-				checkYacht();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isYachtEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}
+		for(int i=0;i <5; i++) {
+			sum += playerDiceArr[i];
 		}
-		isYachtEnd = false;
+		playerScoreBoard[6] = sum;
 	}
 	
 	// Yacht 체크 
@@ -818,9 +484,6 @@ public class Main {
 		for(int i=0; i<5; i++) {
 			if(countNumArr[i] == 5) {
 				hasYacht = true;
-				System.out.println("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
-				System.out.println("★★★★★★★★★★★★★★! YACHT !★★★★★★★★★★★★★");
-				System.out.println("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
 				break;
 			} else {
 				hasYacht = false;
@@ -835,38 +498,6 @@ public class Main {
 		}
 	}
 	
-	// Choice 턴 진행
-	public static void playChoiceTurn() {
-		boolean isChoiceEnd = false; // Sixes 턴 종료 확인
-		
-		System.out.println();
-		System.out.println();
-		System.out.println("Choice 턴입니다. 주사위를 굴리려면 1을 입력하세요.");
-		System.out.println();
-		System.out.println();
-		
-		while(isChoiceEnd == false) {
-			int number = scanner.nextInt();
-			if(number == 1) {
-				// 주사위 굴리기
-				rollDice();
-				// Choices 합산
-				sumChoices();
-				//개행
-				System.out.println();
-				System.out.println();
-				// 점수판 출력
-				printBoard();
-				isChoiceEnd = true;
-			} else {
-				System.out.println();
-				System.out.println("잘못된 입력입니다. 주사위를 굴리려면 1을 입력하세요.");
-				System.out.println();
-			}	
-		}
-		isChoiceEnd = false;
-	}
-	
 	// Choices 체크 
 	public static void sumChoices() {
 		int sum = 0;
@@ -877,91 +508,7 @@ public class Main {
 		playerScoreBoard[6] = sum;
 	}
 	
-	// 누가 이겼는지 체크용 메서드
-	public static void checkWinner() {
-		int playerScore = 0;
-		int cpuScore = 0;
-		
-		for(int i=0; i<11; i++) {
-			playerScore += playerScoreBoard[i];
-			cpuScore += cpuScoreBoard[i];
-		}
-		
-		// 플레이어가 이겼을 경우
-		if (playerScore > cpuScore) {
-			System.out.println();
-			System.out.println();
-			System.out.println("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
-			System.out.println("★★! 플레이어가 이겼습니다. 축하합니다. !★★");
-			System.out.println("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
-			System.out.println();
-			System.out.println();
-			
-		} else if (playerScore == cpuScore) { // 무승부일경우
-			System.out.println();
-			System.out.println();
-			System.out.println("---------------------------------");
-			System.out.println("|    ! 무승부입니다. 아쉽습니다. !      |");
-			System.out.println("---------------------------------");
-			System.out.println();
-			System.out.println();
-		} else if (cpuScore > playerScore) {
-			System.out.println();
-			System.out.println();
-			System.out.println("---------------------------------");
-			System.out.println("| ! 플레이어가 졌습니다. 아쉽습니다. !    |");
-			System.out.println("---------------------------------");
-			System.out.println();
-			System.out.println();
-			
-		}
-		
-	}
-	
-	// 게임 한판 턴 진행
-	public static void playGameOne() {
-		// 플레이어 턴 진행
-		playAcesTurn();
-		playDeucesTurn();
-		playThreesTurn();
-		playFoursTurn();
-		playFivesTurn();
-		playSixesTurn();
-		playChoiceTurn();
-		playFokTurn();
-		playFullHouseTurn();
-		playSStraightTurn();
-		playLStraightTurn();
-		playYachtTurn();
-		
-		checkWinner();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("게임이 종료되었습니다.");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-	}
-	
-	// 초기화 관련 메서드 
-	public static void init() {
-		// 플레이어, cpu 점수판 초기화 
-		initScoreBoard();
-		// Cpu 점수 할당
-		insertCpuScore();
-	}
-	
-	// 업데이트 관련 메서드
-	public static void update() {
-		// 게임 진행
-		playGameOne();
-	}
-	
 	public static void main(String[] args) {
-		// 초기화 진행
-		init();
-		// 게임 진행
-		update();
+		
 	}
 }
