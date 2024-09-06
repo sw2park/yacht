@@ -1,4 +1,6 @@
-package yacht;
+package Game;
+
+import java.util.Map;
 
 public class Render {
 	/*
@@ -17,19 +19,19 @@ public class Render {
 	 * 10		L. Straight		0, 30
 	 * 11		yacht			0, 50
 	 */
-	
+	public Main mian;
 	// 점수판 출력 메서드
 	public void renderScoreBoard() {
 		System.out.printf("-----------점수판------------ \n");
 		System.out.printf("Categories   |player|cpu     \n");
-		System.out.printf("Aces         |   %2d  |  %2d  \n");
-		System.out.printf("Deuces       |   %2d  |  %2d  \n");
-		System.out.printf("Threes       |   %2d  |  %2d  \n");
-		System.out.printf("Fours        |   %2d  |  %2d  \n");
-		System.out.printf("Fives        |   %2d  |  %2d  \n");
-		System.out.printf("Sixes        |   %2d  |  %2d  \n");
-		System.out.printf("Choice       |   %2d  |  %2d  \n");
-		System.out.printf("4 of a Kind  |   %2d  |  %2d  \n");
+//		System.out.printf("Aces         |   " + score.get("Aces") + "%2s  |  %2d  \n");
+		System.out.printf("Deuces       |   %2s  |  %2d  \n");
+		System.out.printf("Threes       |   %2s  |  %2d  \n");
+		System.out.printf("Fours        |   %2s  |  %2d  \n");
+		System.out.printf("Fives        |   %2s  |  %2d  \n");
+		System.out.printf("Sixes        |   %2s  |  %2d  \n");
+		System.out.printf("Choice       |   %2s  |  %2d  \n");
+		System.out.printf("4 of a Kind  |   %2s  |  %2d  \n");
 		System.out.printf("Full House   |   %2d  |  %2d  \n");
 		System.out.printf("S.Straight   |   %2d  |  %2d  \n");
 		System.out.printf("L.Straight   |   %2d  |  %2d  \n");

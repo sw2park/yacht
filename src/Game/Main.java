@@ -25,6 +25,8 @@ public class Main {
 	
 	private YachtHand playerHand; // 플레이어 핸드 객체 생성
 	private Map<String, Integer> scoreBoard; // 점수판
+
+	private Render render; // 렌더 객체 생성
 	
 	// Main 클래스 생성되자마자 실행
 	public Main() {
@@ -38,7 +40,7 @@ public class Main {
 	
 	// scoreBoard 초기화 메서드
 	private void initScoreBoard() {
-		scoreBoard.put("Aces", 0);
+		scoreBoard.put("Aces", 10);
 		scoreBoard.put("Deuces", 0);
 		scoreBoard.put("Threes", 0);
 		scoreBoard.put("Fours", 0);
@@ -74,20 +76,38 @@ public class Main {
 			}
 		}
 		
-		// 점수 기입 + 점수 계산
+		// ones, twos ... 식으로 출력말고 현재 손패에서 가능한 족보만 출력하게끔
+        System.out.println("점수를 입력할 곳을 적어주세요. (Aces, Deuces, Threes, Fours, Fives, Sixes): ");
+        String category = scanner.next();
+        int score = sumSameScore(category);
+        scoreBoard.put(category, score);
+        System.out.println(category + ": " + score);
+        // 점수판 출력 메서드 
+        System.out.println("임시 점수판 : " + scoreBoard);
+        System.out.println(category + " : " + scoreBoard.get(category));
+        render.renderGameOver();
 	}
 	
-	// calculateScore 작성해야댐
+	// 플레이어 손패에서 선택한 주사위 값만 더해서 score로 반환하는 메서드
+	private int sumSameScore(String category) {
+		int score = 0;
+		for(Dice die : playerHand.getDice()) {
+			if(die.getValue() == getCategoryValue(category)) {
+				score += die.getValue();
+			}
+		}
+		return score;
+	}
 	
 	// 선택한 카테고리 String에서 int 값으로 변환하는 메서드
 	private int getCategoryValue(String category) {
 		switch(category) {
-		case "ones" : return 1;
-		case "twos" : return 2;
-		case "threes" : return 3;
-		case "fours" : return 4;
-		case "fives" : return 5;
-		case "sixes" : return 6;
+		case "Aces" : return 1;
+		case "Deuces" : return 2;
+		case "Threes" : return 3;
+		case "Fours" : return 4;
+		case "Fives" : return 5;
+		case "Sixes" : return 6;
 		default : throw new IllegalArgumentException("Invalid category");
 		}
 	}

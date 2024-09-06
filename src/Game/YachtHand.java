@@ -3,8 +3,6 @@ package Game;
 import java.util.ArrayList;
 import java.util.List;
 
-import yachtGame.Dice;
-
 public class YachtHand {
 	private List<Dice> dice; // 주사위 값을 저장할 리스트
 	
